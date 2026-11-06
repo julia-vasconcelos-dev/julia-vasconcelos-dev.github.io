@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Júlia Vasconcelos — Systems Analysis and Development student interested in software development and technology.">
+  <meta name="theme-color" content="#f7f3fb">
+  <title>Júlia Vasconcelos | Personal Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf8fc;
+      --surface: #ffffff;
+      --surface-soft: #f3edf8;
+      --lavender: #e8dcf2;
+      --lilac: #c6a9df;
+      --purple: #8765a5;
+      --purple-deep: #5c4374;
+      --ink: #292333;
+      --muted: #756d7e;
+      --line: #e9e1ef;
+      --shadow: 0 22px 65px rgba(74, 48, 94, .09);
+      --radius: 24px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 95px; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font-family: "DM Sans", sans-serif; line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    .site-shell { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 10; backdrop-filter: blur(16px);
+      background: rgba(250,248,252,.88); border-bottom: 1px solid rgba(233,225,239,.8);
+    }
+    .nav {
+      min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .brand { font-weight: 700; letter-spacing: .08em; color: var(--purple-deep); font-size: 1.08rem; }
+    .nav-links { display: flex; flex-wrap: wrap; align-items: center; gap: 25px; color: var(--muted); font-size: .9rem; }
+    .nav-links a:hover, .text-link:hover { color: var(--purple); }
+    .hero { padding: 76px 0 62px; }
+    .hero-card {
+      position: relative; overflow: hidden; display: grid; grid-template-columns: 1.2fr .8fr;
+      align-items: center; gap: 44px; padding: clamp(30px, 6vw, 72px);
+      background: linear-gradient(135deg, #fff 0%, #f7f1fb 100%);
+      border: 1px solid var(--line); border-radius: 34px; box-shadow: var(--shadow);
+    }
+    .hero-card::before, .hero-card::after {
+      content: ""; position: absolute; border-radius: 50%; pointer-events: none;
+      background: radial-gradient(circle, rgba(198,169,223,.34), rgba(198,169,223,0) 70%);
+    }
+    .hero-card::before { width: 390px; height: 390px; right: -130px; top: -170px; }
+    .hero-card::after { width: 270px; height: 270px; left: 34%; bottom: -210px; }
+    .hero-copy, .portrait-wrap { position: relative; z-index: 1; }
+    .eyebrow { color: var(--purple); font-size: .76rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+    h1, h2, h3 { margin: 0; line-height: 1.2; }
+    h1 { margin-top: 14px; font-family: "Playfair Display", serif; font-size: clamp(2.7rem, 6vw, 4.7rem); letter-spacing: -.045em; }
+    .hero-subtitle { margin: 16px 0 0; color: var(--purple-deep); font-size: clamp(1.08rem, 2vw, 1.35rem); font-weight: 500; }
+    .hero-description { max-width: 560px; color: var(--muted); margin: 18px 0 28px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 46px;
+      padding: 0 20px; border-radius: 999px; font-size: .9rem; font-weight: 600;
+      border: 1px solid var(--purple); transition: transform .2s, background .2s;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { color: white; background: var(--purple-deep); border-color: var(--purple-deep); }
+    .button.secondary { color: var(--purple-deep); background: rgba(255,255,255,.65); }
+    .portrait-wrap { display: flex; justify-content: center; }
+    .portrait-frame {
+      width: min(290px, 62vw); aspect-ratio: 1; border-radius: 50%; padding: 10px;
+      background: linear-gradient(145deg, #fff, #d8c2e9); box-shadow: 0 22px 55px rgba(73,49,91,.16);
+    }
+    .portrait {
+      width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block;
+      background: linear-gradient(145deg, #eee5f5, #d9c4e9);
+    }
+    .portrait-fallback {
+      width: 100%; height: 100%; display: grid; place-items: center; border-radius: 50%;
+      color: var(--purple-deep); font-family: "Playfair Display", serif; font-size: 4.5rem;
+      background: radial-gradient(circle at 35% 30%, #fff, #e5d6f0 65%, #c6a9df);
+    }
+    section { padding: 54px 0; }
+    .section-heading { margin-bottom: 26px; }
+    .section-kicker { color: var(--purple); font-size: .72rem; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
+    h2 { margin-top: 8px; font-family: "Playfair Display", serif; font-size: clamp(2rem, 4vw, 2.7rem); letter-spacing: -.025em; }
+    .section-intro { max-width: 680px; margin: 12px 0 0; color: var(--muted); }
+    .about-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 22px; }
+    .panel {
+      padding: 30px; border: 1px solid var(--line); border-radius: var(--radius);
+      background: var(--surface); box-shadow: 0 10px 35px rgba(74,48,94,.045);
+    }
+    .panel p { margin: 0; color: var(--muted); }
+    .fact-list { display: grid; gap: 18px; }
+    .fact-label { display: block; color: var(--purple); font-size: .7rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .fact-value { display: block; margin-top: 3px; font-weight: 600; }
+    .journey { position: relative; display: grid; gap: 16px; }
+    .journey-item { display: grid; grid-template-columns: 18px 1fr; gap: 18px; }
+    .journey-dot { width: 12px; height: 12px; margin-top: 7px; border-radius: 50%; background: var(--purple); box-shadow: 0 0 0 5px var(--surface-soft); }
+    .journey-item h3 { font-size: 1.02rem; }
+    .journey-item p { margin: 5px 0 0; color: var(--muted); font-size: .93rem; }
+    .interest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .interest {
+      padding: 24px; border-radius: 20px; background: var(--surface-soft); border: 1px solid #e8dcef;
+    }
+    .interest-number { color: var(--purple); font-size: .72rem; font-weight: 700; letter-spacing: .12em; }
+    .interest h3 { margin-top: 9px; font-size: 1.08rem; }
+    .interest p { margin: 8px 0 0; color: var(--muted); font-size: .9rem; }
+    .learning-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .tag { padding: 9px 15px; border-radius: 999px; background: #f2eaf8; color: var(--purple-deep); border: 1px solid #e5d8ef; font-size: .86rem; font-weight: 600; }
+    .contact-card {
+      display: flex; align-items: center; justify-content: space-between; gap: 25px;
+      padding: clamp(28px, 5vw, 48px); border-radius: 28px; color: white;
+      background: linear-gradient(120deg, #5c4374, #80629a);
+    }
+    .contact-card h2 { color: white; }
+    .contact-card p { max-width: 540px; color: #eee5f5; margin: 12px 0 0; }
+    .contact-card .button { flex-shrink: 0; color: var(--purple-deep); background: white; border-color: white; }
+    footer { padding: 30px 0 42px; color: #93899d; text-align: center; font-size: .82rem; }
+    .text-link { color: var(--purple-deep); font-weight: 600; text-decoration: underline; text-decoration-color: #c6a9df; text-underline-offset: 4px; }
+    @media (max-width: 760px) {
+      .nav { align-items: flex-start; flex-direction: column; justify-content: center; padding: 15px 0; gap: 9px; }
+      .nav-links { gap: 10px 18px; font-size: .82rem; }
+      .hero { padding-top: 30px; }
+      .hero-card { grid-template-columns: 1fr; text-align: center; gap: 30px; }
+      .hero-description { margin-left: auto; margin-right: auto; }
+      .actions { justify-content: center; }
+      .portrait-wrap { grid-row: 1; }
+      .portrait-frame { width: 205px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .contact-card { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 480px) {
+      .site-shell { width: min(100% - 28px, 1120px); }
+      .interest-grid { grid-template-columns: 1fr; }
+      .panel { padding: 23px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="site-shell nav">
+      <a class="brand" href="#home" aria-label="Júlia Vasconcelos home">JV.</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#journey">My journey</a>
+        <a href="#interests">Interests</a>
+        <a href="#learning">Learning</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="site-shell hero" id="home">
+      <div class="hero-card">
+        <div class="hero-copy">
+          <span class="eyebrow">Personal portfolio · 2026</span>
+          <h1>Júlia<br>Vasconcelos</h1>
+          <p class="hero-subtitle">Systems Analysis and Development Student</p>
+          <p class="hero-description">
+            Exploring technology, building new skills and discovering the many ways software can turn ideas into meaningful solutions.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#about">Get to know me</a>
+            <a class="button secondary" href="#contact">Let's connect</a>
+          </div>
+        </div>
+        <div class="portrait-wrap">
+          <div class="portrait-frame">
+            <!-- Replace assets/profile.jpg with your own photo. Until then, the initials are displayed. -->
+            <div class="portrait-fallback" id="portraitFallback" aria-label="Júlia Vasconcelos initials">JV</div>
+            <img class="portrait" id="profilePhoto" src="assets/profile.jpg" alt="Portrait of Júlia Vasconcelos" hidden>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="site-shell">
+        <div class="section-heading">
+          <span class="section-kicker">01 / Introduction</span>
+          <h2>A little about me</h2>
+          <p class="section-intro">A space to share my academic path, what inspires me and the interests guiding my journey in technology.</p>
+        </div>
+        <div class="about-grid">
+          <article class="panel">
+            <p>
+              Hello! I'm Júlia, a student of Systems Analysis and Development at César School, in Brazil.
+              I'm interested in software development and enjoy learning how technology, logic and creativity
+              come together to solve problems. I'm currently building my foundations in programming and
+              exploring the field one step at a time.
+            </p>
+          </article>
+          <aside class="panel fact-list">
+            <div><span class="fact-label">Education</span><span class="fact-value">Systems Analysis and Development</span></div>
+            <div><span class="fact-label">Institution</span><span class="fact-value">César School</span></div>
+            <div><span class="fact-label">Location</span><span class="fact-value">Brazil</span></div>
+            <div><span class="fact-label">Main interest</span><span class="fact-value">Software Development</span></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey">
+      <div class="site-shell">
+        <div class="section-heading">
+          <span class="section-kicker">02 / Background</span>
+          <h2>My learning journey</h2>
+          <p class="section-intro">Every new concept is another step toward understanding how digital products are designed and built.</p>
+        </div>
+        <div class="panel journey">
+          <div class="journey-item">
+            <span class="journey-dot"></span>
+            <div>
+              <h3>Systems Analysis and Development</h3>
+              <p>César School · Current studies</p>
+              <p>Developing a foundation in programming, computational thinking and the fundamentals of software and systems.</p>
+            </div>
+          </div>
+          <div class="journey-item">
+            <span class="journey-dot"></span>
+            <div>
+              <h3>Hands-on practice</h3>
+              <p>Learning through exercises and personal practice</p>
+              <p>Applying classroom concepts, experimenting with code and documenting progress on GitHub.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="interests">
+      <div class="site-shell">
+        <div class="section-heading">
+          <span class="section-kicker">03 / What inspires me</span>
+          <h2>Areas of interest</h2>
+          <p class="section-intro">The topics I'm curious about and would like to explore more deeply as I grow in the field.</p>
+        </div>
+        <div class="interest-grid">
+          <article class="interest">
+            <span class="interest-number">01</span>
+            <h3>Software Development</h3>
+            <p>Understanding how applications are planned, structured and developed to meet real needs.</p>
+          </article>
+          <article class="interest">
+            <span class="interest-number">02</span>
+            <h3>Programming</h3>
+            <p>Strengthening logical thinking and learning to write clear, useful and reliable code.</p>
+          </article>
+          <article class="interest">
+            <span class="interest-number">03</span>
+            <h3>Technology & Innovation</h3>
+            <p>Discovering tools and ideas that can create better experiences and new possibilities.</p>
+          </article>
+          <article class="interest">
+            <span class="interest-number">04</span>
+            <h3>Creative Problem Solving</h3>
+            <p>Connecting analytical thinking and creativity to approach challenges from different perspectives.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="learning">
+      <div class="site-shell">
+        <div class="section-heading">
+          <span class="section-kicker">04 / In progress</span>
+          <h2>Currently learning</h2>
+          <p class="section-intro">A snapshot of the tools and foundations I'm exploring. This section can grow as my skills develop.</p>
+        </div>
+        <div class="panel">
+          <div class="learning-list">
+            <span class="tag">Python</span>
+            <span class="tag">Programming Logic</span>
+            <span class="tag">Git & GitHub</span>
+            <span class="tag">HTML & CSS</span>
+            <span class="tag">Computer Fundamentals</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="site-shell">
+        <div class="contact-card">
+          <div>
+            <span class="eyebrow" style="color:#e4d2f2">05 / Get in touch</span>
+            <h2>Let's connect.</h2>
+            <p>I'm always open to connecting with people who enjoy learning, sharing ideas and exploring technology.</p>
+          </div>
+          <a class="button" href="https://github.com/julia-vasconcelos-dev" target="_blank" rel="noreferrer">Visit my GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="site-shell">Designed and built with care by Júlia Vasconcelos · <span id="year"></span></div>
+  </footer>
+
+  <script>
+    const photo = document.getElementById("profilePhoto");
+    const fallback = document.getElementById("portraitFallback");
+    photo.addEventListener("load", () => {
+      photo.hidden = false;
+      fallback.hidden = true;
+    });
+    photo.addEventListener("error", () => {
+      photo.hidden = true;
+      fallback.hidden = false;
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
