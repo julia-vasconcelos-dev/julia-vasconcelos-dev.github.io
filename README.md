@@ -1,33 +1,26 @@
-# Júlia Vasconcelos — Personal Website
+# Personal Portfolio
 
-A responsive personal portfolio built with HTML, CSS and a little JavaScript, ready for GitHub Pages.
+A personal portfolio website built with HTML, CSS, and JavaScript, and published with GitHub Pages.
 
-## 1. Add your profile photo
+## About
 
-Your supplied portrait is already included as `assets/profile.jpg`. The website automatically crops it into a circle.
+This website presents my background as an Analysis and Systems Development (ADS) student, my interests in software development, and my learning journey in technology.
 
-If you use a PNG, change `assets/profile.jpg` in `index.html` to `assets/profile.png`.
+## Technologies
 
-## 2. Personalize your links
+- HTML
+- CSS
+- JavaScript
 
-In `index.html`, find the contact section and replace `https://github.com/` with your actual GitHub profile URL. You can add your email or other social links there too.
+## Website
 
-## 3. Publish with GitHub Pages
+Visit the live portfolio: [julia-vasconcelos-dev.github.io](https://julia-vasconcelos-dev.github.io)
 
-1. Create a GitHub repository named `julia-vasconcelos-dev.github.io`.
-2. Upload `index.html`, the `assets` folder and this README to the repository's root.
-3. Open the repository's **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select the `main` branch and `/ (root)` folder, then save.
-6. Wait a few minutes. Your site should appear at `https://julia-vasconcelos-dev.github.io/`.
+## Project Structure
 
-## 4. Update the site later
+- `index.html` — website structure, styles, and interactions
+- `assets/` — images and other static assets
 
-Edit `index.html` whenever you want to update your introduction, interests, learning topics or links. Commit the changes to the `main` branch and GitHub Pages will publish the update.
+## Updates
 
-## Notes
-
-- The site is in English and uses a lavender/lilac visual identity.
-- It is responsive for mobile and desktop screens.
-- The profile photo is optional; until `assets/profile.jpg` is added, the initials “JV” appear.
-- Google Fonts are loaded online. The page remains readable if the font service is unavailable.
+The website is maintained as I continue learning and developing new skills.
